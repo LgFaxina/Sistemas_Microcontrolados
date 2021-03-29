@@ -19,6 +19,7 @@ main    MOV R0, #0
         MOVS R5, #-2
         MOV R6, #0
         MOVS R7, #0
+
 loop    B       loop            ; go to loop
         ;; main program ends here
 
