@@ -11,15 +11,17 @@
 __iar_program_start
         
         ;; main program begins here
-main    MOV R0, #0
-        MOVS R1, #0
-        MOV R2, #-1
-        MOVS R3, #-2
-        MOV R4, #-1
-        MOVS R5, #-2
-        MOV R6, #0
-        MOVS R7, #0
-        
+main    MOV R0, #0x4567
+        MOVT R0, #0x0123
+        MVN R1, R0
+        MOV R2, #1
+        MOV R3, #2
+        PUSH {R0, R1, R2, R3}
+        LDR R4, [SP]
+        LDR R5, [SP, R2, LSL #2]
+        LDR R5, [SP, R3, LSL #2]
+        POP {R0, R1, R2, R3}
+
 loop    B       loop            ; go to loop
         ;; main program ends here
 
