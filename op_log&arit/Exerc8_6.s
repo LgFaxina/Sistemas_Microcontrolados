@@ -11,14 +11,20 @@
 __iar_program_start
         
         ;; main program begins here
-main    MOV R0,  #4          ;valor para testar
+main    MOV R0,  #-4          ;valor de entrada par os testes
         MOV R1, #2
+        MOVS R9, R0
+        ITE PL
+          ADDPL R4,#1 ;positivo
+          ADDMI R4, #0;negativo      
+        
      
         BL checkParImpar
         ITE EQ
           ADDEQ R3, #0;par
           ADDNE R3, #1 ;impar
-       ; BL checkPosNeg
+        
+        
         B . ;  
 
 checkParImpar
